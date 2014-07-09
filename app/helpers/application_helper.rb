@@ -9,4 +9,19 @@ module ApplicationHelper
   end
  end
  
+ 
+ def name_longer_than_eight
+    
+    
+    User.all.each do |user|
+      
+      if user.name == "Bassam"
+        Users.push(user)
+      end
+      
+    end
+    
+    Users
+  end
+ 
 end
