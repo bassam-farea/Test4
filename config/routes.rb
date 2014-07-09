@@ -1,4 +1,5 @@
 Test4::Application.routes.draw do
+  resources :users
   root 'blogs#home'
   match '/home',   to: 'blogs#home',    via: 'get'
   match '/about',  to: 'blogs#about',   via: 'get'
