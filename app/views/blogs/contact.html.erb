@@ -1,0 +1,15 @@
+<%provide(:title,'Contact Us')%>
+<div class="jumbotron">
+     <div class="container">
+      <h1>Contact Us</h1>
+      <p>This is the contact us page!</p>
+     </div>
+</div>
+
+<%= form_tag('/send') do %>
+   <%= label_tag 'Subject' %>
+   <div><%= text_field_tag 'subject' %></div>
+   <%= label_tag 'Body' %>
+   <div><%= text_area_tag 'body' %></div>
+   <div><%= submit_tag 'Send' %></div>
+<% end %>
