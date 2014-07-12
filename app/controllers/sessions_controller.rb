@@ -1,7 +1,5 @@
 class SessionsController < ApplicationController
   
-  def new 
-  end
   
   def create
     @user = User.find_by(email: params[:session][:email].downcase)
@@ -10,11 +8,13 @@ class SessionsController < ApplicationController
       redirect_to @user
     else
       flash.now[:success] = 'Invalid email/password combination' # Not quite right!
-      redirect_to about_path
+      redirect_to root_url
     end
   end
   
   def destroy
+     sign_out
+    redirect_to root_url
   end
   
 end

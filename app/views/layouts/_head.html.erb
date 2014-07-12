@@ -12,12 +12,14 @@
         <div class="navbar-collapse collapse">
         	<ul class="nav navbar-nav">
 				<li><%= link_to "About Us", about_path%></li>
+				<% if !signed_in? %>
 				<li><%= link_to "Sign Up", signup_path%></li>
+				<% end %>
 				<li><%= link_to "Contact Us", contact_path%></li>
 			</ul>
 			
 			<% if signed_in? %>
-		<ul class="nav pull-right">
+		<ul class="nav navbar-nav pull-right">
             <li><%= link_to "Users", '#' %></li>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -32,9 +34,14 @@
                 </li>
               </ul>
             </li>
-          </ul>
+           </ul>
 		<% else %>
-          <form class="navbar-form navbar-right" role="form" action="/sessions" method="post">
+	<div class="navbar-form navbar-right">	
+	<%= form_for(:session, url: sessions_path) do |f| %>
+
+      <%= f.label :email %> <%= f.text_field :email %>  <%= f.label :password %>  <%= f.password_field :password %>  <%= f.submit "Sign in", class: "btn btn-success" %>
+    <% end %>
+         <!-- <form class="navbar-form navbar-right" accept-charset="UTF-8" action="/sessions" method="post">
             <div class="form-group">
               <input type="text"  name="session[email]" class="form-control">
             </div>
@@ -42,8 +49,9 @@
               <input type="password" name="session[password]" class="form-control">
             </div>
             <button type="submit" class="btn btn-success">Sign in</button>
-          </form>
+         </form> -->
        <% end %>
+     </div>
         </div><!--/.navbar-collapse -->
       </div>
     </div>
