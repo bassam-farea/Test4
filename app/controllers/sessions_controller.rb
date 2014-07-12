@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
       sign_in @user
       redirect_to @user
     else
-      flash.now[:success] = 'Invalid email/password combination' # Not quite right!
+      flash.now[:success] = 'Invalid email/password combination' 
       redirect_to root_url
     end
   end
