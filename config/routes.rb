@@ -1,12 +1,14 @@
 Test4::Application.routes.draw do
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
   root 'blogs#home'
   match '/home',   to: 'blogs#home',    via: 'get'
   match '/about',  to: 'blogs#about',   via: 'get'
   match '/signup', to: 'users#new', via: 'get'
   match '/contact', to: 'blogs#contact', via: 'get'
   match '/send', to: 'blogs#send_email', via: 'post'
-  match '/signin', to: 'sessions#send_email', via: 'post'
+  match '/signin',  to: 'sessions#new',         via: 'get'
+  match '/signout', to: 'sessions#destroy',     via: 'delete'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
