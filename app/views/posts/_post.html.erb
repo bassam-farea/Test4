@@ -1,0 +1,7 @@
+<li>
+  <span class="title"><%= post.title %></span>
+  <span class="content"><%= truncate(post.content, length:50) %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(post.created_at) %> ago.
+  </span>
+</li>
