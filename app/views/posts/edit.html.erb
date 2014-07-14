@@ -1,0 +1,20 @@
+<% provide(:title, 'Edit Post') %>
+<h1>Edit Post</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+  	
+    <%= form_for(@post) do |f| %>
+     
+      <div>
+      <%= f.text_field :title %>
+	  </div>
+	  <div>
+      <%= f.text_area :content %>
+      </div>
+      <%= f.submit "Post", class: "btn btn-large btn-primary" %>
+    <% end %>
+
+    
+  </div>
+</div>

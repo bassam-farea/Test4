@@ -1,0 +1,11 @@
+<%= form_for(@post) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div>
+  	<%= f.text_field :title, placeholder: "put the post title"%>
+  </div>
+  <br>
+  <div class="field">
+    <%= f.text_area :content, placeholder: "Compose new opost..." %>
+  </div>
+  <%= f.submit "Post", class: "btn btn-large btn-primary" %>
+<% end %>

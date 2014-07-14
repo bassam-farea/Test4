@@ -11,7 +11,7 @@
   
   <div class="span8">
     <% if @user.posts.any? %>
-      
+      <h3>Posts (<%= @user.posts.count %>)</h3>
       <ol class="posts">
         <%= render @posts %>
       </ol>

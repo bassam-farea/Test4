@@ -1,0 +1,10 @@
+<div class="span8">
+<% if @feed_items.any? %>
+  <ol class="posts">
+  	<div>
+    <%= render partial: 'shared/feed_item', collection: @feed_items %>
+    </div>
+  </ol>
+  <%= will_paginate @feed_items %>
+<% end %>
+</div>

@@ -3,7 +3,7 @@ Test4::Application.routes.draw do
   get "posts/destroy"
   resources :users
   resources :sessions, only: [:create, :destroy]
-  resources :posts, only: [:create, :destroy]
+  resources :posts
   root 'blogs#home'
   match '/home',   to: 'blogs#home',    via: 'get'
   match '/about',  to: 'blogs#about',   via: 'get'
