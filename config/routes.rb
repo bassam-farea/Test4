@@ -1,9 +1,17 @@
 Test4::Application.routes.draw do
   get "posts/create"
   get "posts/destroy"
-  resources :users
+  
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+  
   resources :sessions, only: [:create, :destroy]
   resources :posts
+  resources :relationships, only: [:create, :destroy]
+   
   root 'blogs#home'
   match '/home',   to: 'blogs#home',    via: 'get'
   match '/about',  to: 'blogs#about',   via: 'get'
